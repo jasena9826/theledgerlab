@@ -13,9 +13,9 @@ export const profile = {
 
 export const links = {
   linkedin: 'https://www.linkedin.com/in/juanitaegaynor',
-  github: '#',
-  handshake: '#',
-  email: '#', // e.g. 'mailto:you@example.com'
+  github: 'https://github.com/jasena9826',
+  handshake: 'https://app.joinhandshake.com/profiles/juanitaegaynor',
+  email: 'mailto:juanitagaynor@gmail.com',
   ledgerLab: '#',
   careerCommandCenter: '#',
   accountingProjects: '#',
