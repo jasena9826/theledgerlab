@@ -7,6 +7,8 @@
 @theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+  --color-gold: var(--gold);
+  --color-ivory: var(--ivory);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -32,35 +34,76 @@
   --radius-2xl: calc(var(--radius) * 1.8);
 }
 
+/* Palette: deep charcoal/black, warm metallic gold, soft ivory. */
 :root {
-  color-scheme: light;
-  /* Crimson Red #DC143C is the single brand color; everything else is neutral. */
-  --background: oklch(0.975 0.004 20);
-  --foreground: oklch(0.2 0.01 20);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.01 20);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.01 20);
-  --primary: #dc143c;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.96 0.01 20);
-  --secondary-foreground: oklch(0.2 0.01 20);
-  --muted: oklch(0.96 0.005 20);
-  --muted-foreground: oklch(0.45 0.01 20);
-  --accent: oklch(0.96 0.02 20);
-  --accent-foreground: #dc143c;
+  color-scheme: dark;
+  --gold: #c9a45c;
+  --ivory: #f4eee2;
+  --background: #0d0d0e;
+  --foreground: #f4eee2;
+  --card: #151517;
+  --card-foreground: #f4eee2;
+  --popover: #151517;
+  --popover-foreground: #f4eee2;
+  --primary: #c9a45c;
+  --primary-foreground: #0d0d0e;
+  --secondary: #1c1c1f;
+  --secondary-foreground: #f4eee2;
+  --muted: #1c1c1f;
+  --muted-foreground: #a9a399;
+  --accent: #1f1c16;
+  --accent-foreground: #c9a45c;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.91 0.008 20);
-  --input: oklch(0.91 0.008 20);
-  --ring: #dc143c;
-  --radius: 0.625rem;
+  --border: rgba(201, 164, 92, 0.22);
+  --input: rgba(201, 164, 92, 0.22);
+  --ring: #c9a45c;
+  --radius: 0.75rem;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground font-sans;
+  }
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+}
+
+/* Subtle ledger-style grid used behind the hero. */
+.ledger-grid {
+  background-image:
+    linear-gradient(to right, rgba(201, 164, 92, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(201, 164, 92, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+/* Restrained fade-up used by the <Reveal> component. */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

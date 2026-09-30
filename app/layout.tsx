@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const fraunces = Fraunces({ subsets: ['latin'], variable: '--font-fraunces' })
 
 export const metadata: Metadata = {
-  title: 'Juanita E Gaynor',
+  title: 'Juanita Gaynor | Where Experience Meets What’s Next',
   description:
     'Accounting Professional • Business Strategist • Emerging Technologist. Bringing together accounting experience, business strategy, continuous learning, and technology to solve problems, build better systems, and turn information into action.',
   generator: 'v0.app',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light',
-  themeColor: '#dc143c',
+  colorScheme: 'dark',
+  themeColor: '#0d0d0e',
 }
 
 export default function RootLayout({
